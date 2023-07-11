@@ -1,0 +1,24 @@
+.header {
+    height: 55px;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+}
+
+.a1 {
+    width: 200px;
+    background-color:blue;
+}
+.a2 {
+    flex: 1;
+    background-color: red;
+    margin-left: 100 px;
+}
+.a3 {
+    width: 200px;
+    background-color: lightblue;
+}
+
+.search-bar {
+    display: inline-block;
+}

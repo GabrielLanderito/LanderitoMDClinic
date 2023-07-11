@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gab's Clinic</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="left-header">
+        <img class="logo-header" src="images/logo.png" />
+      </div>
+      <div class="mid-header">
+        <div class="search-bar">
+          <input type="text" class="search-input" placeholder="Search Clinic" />
+          <button class="search-button" type="submit">
+            <img src="images/searchbt.png" alt="Search" />
+          </button>
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="pf">
+          <img class="profile-pic" src="images/profile.png" />
+        </div>
+        <button class="toggle" onclick="hatdog()">
+          <img class="burger" src="images/hamburger-menu.png" />
+        </button>
+      </div>
+    </header>
+    <div class="container">
+      <div id="side">
+        <a class="navleft" href="#">Home</a>
+        <a href="#">Set Appointment</a>
+        <a class="navright" href="#">Consultations</a>
+      </div>
+      <main>
+        <div class="cards">
+          <div class="dashboard-card">
+            <h2 class="card-title">Current Date</h2>
+            <p class="card-content" id="current-date"></p>
+            <p class="card-content" id="current-time"></p>
+          </div>
+          <div class="dashboard-card">
+            <h2 class="card-title">Patient Number</h2>
+            <p class="card-content" id="patient-number"></p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      function hatdog() {
+        var x = document.getElementById("side");
+        if (x.style.display === "none") {
+          x.style.display = "flex";
+        } else {
+          x.style.display = "none";
+        }
+      }
+
+      window.addEventListener("resize", function () {
+        var x = document.getElementById("side");
+        var windowWidth = window.innerWidth;
+        if (windowWidth > 912) {
+          x.style.display = "flex";
+        }
+      });
+
+      // JavaScript code to update the current date and time
+      var currentDateElement = document.getElementById("current-date");
+      var currentTimeElement = document.getElementById("current-time");
+
+      function updateDateTime() {
+        // Set the current date
+        var currentDate = new Date();
+        currentDateElement.textContent = currentDate.toDateString();
+
+        // Set the current time
+        var currentTime = currentDate.toLocaleTimeString();
+        currentTimeElement.textContent = currentTime;
+      }
+
+      // Call the updateDateTime function initially
+      updateDateTime();
+
+      // Update the date and time every second
+      setInterval(updateDateTime, 1000);
+    </script>
+  </body>
+</html>
